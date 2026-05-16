@@ -1,13 +1,18 @@
 #!/bin/bash
 
-# goinfre cache 폴더 없으면 생성
 if [ ! -d "/home/jyoo/goinfre/.cache" ]; then
 	mkdir -p /home/jyoo/goinfre/.cache
 fi
 
-# ibus 자동 실행
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 
 ibus-daemon -drx
+
+# 화면 밝기 최대로 설정
+if command -v brightnessctl >/dev/null 2>&1; then
+	brightnessctl set 100%
+elif command -v xrandr >/dev/null 2>&1; then
+	xrandr --output "$(xrandr | awk '/ connected primary/{print $1; exit} / connected/{print $1; exit}')" --brightness 1
+fi
