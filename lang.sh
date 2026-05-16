@@ -11,8 +11,8 @@ export XMODIFIERS=@im=ibus
 ibus-daemon -drx
 
 # 화면 밝기 최대로 설정
-if command -v brightnessctl >/dev/null 2>&1; then
-	brightnessctl set 100%
-elif command -v xrandr >/dev/null 2>&1; then
-	xrandr --output "$(xrandr | awk '/ connected primary/{print $1; exit} / connected/{print $1; exit}')" --brightness 1
-fi
+gdbus call --session \
+--dest org.gnome.SettingsDaemon.Power \
+--object-path /org/gnome/SettingsDaemon/Power \
+--method org.freedesktop.DBus.Properties.Set \
+org.gnome.SettingsDaemon.Power.Screen Brightness "<int32 100>" >/dev/null 2>&1
