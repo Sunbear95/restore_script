@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=VS Code Portable
+Comment=Code Editing. Redefined.
+Exec=/home/gitkim/vscode/code
+Icon=/home/gitkim/vscode/resources/app/resources/linux/code.png
+StartupWMClass=code
+Terminal=false
+Categories=Development;IDE;
