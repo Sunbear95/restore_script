@@ -44,6 +44,21 @@ if [ ! -d "$HOME/goinfre/VSCode-linux-x64" ]; then
 	update-desktop-database "$HOME/.local/share/applications" 2>/dev/null
 fi
 
+mkdir -p "$GOINFRE/vscode/.vscode"
+mkdir -p "$GOINFRE/vscode/Code"
+
+mkdir -p "$HOME/.config"
+
+if [ ! -L "$HOME/.vscode" ]; then
+	rm -rf "$HOME/.vscode"
+	ln -s "$GOINFRE/vscode/.vscode" "$HOME/.vscode"
+fi
+
+if [ ! -L "$HOME/.config/Code" ]; then
+	rm -rf "$HOME/.config/Code"
+	ln -s "$GOINFRE/vscode/Code" "$HOME/.config/Code"
+fi
+
 # 화면 밝기 최대로 설정
 gdbus call --session \
 --dest org.gnome.SettingsDaemon.Power \
