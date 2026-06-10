@@ -59,7 +59,7 @@ ln -s "$GOINFRE/.npm_cache/_npx" "$HOME/.npm/_npx"
 # =========================
 
 git config --global user.name "Sunbear95"
-git config --global user.email "jyoo@student.42gyeongsan.kr"
+git config --global user.email "dbwofldb@naver.com"
 
 git config --global \
 url."git@github.com:".insteadOf \
